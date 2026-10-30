@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>🎓 Gestion des Étudiants (Vue 3 + Laravel)</h1>
+        <h1>🎓 Gestion des Étudiants xcvxsdsqdqsdsd(Vue 3 + Laravel)</h1>
         <p>Tout est prêt pour démarrer le CRUD !</p>
     </div>
 </template>
@@ -14,13 +14,13 @@ import { ref } from 'vue'
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background: #f8fafc;
+    background: #d81010;
     border-radius: 8px;
     font-family: sans-serif;
 }
 
 h1 {
-    color: #0f172a;
+    color: #0744d4;
     font-size: 20 px;
 }
 </style>
