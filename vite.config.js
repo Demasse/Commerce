@@ -12,6 +12,11 @@ export default defineConfig({
         tailwindcss(),
         vue(), // Activation de Vue
     ],
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.esm-bundler.js', // <--- C'est cette ligne magique qui règle tout !
+        },
+    },
     server: {
         watch: {
             ignored: ['**/storage/framework/views/**'],
