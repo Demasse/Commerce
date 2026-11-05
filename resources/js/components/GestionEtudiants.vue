@@ -14,7 +14,7 @@ import { ref } from 'vue'
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background: #29d126;
+    background: #579856;
     border-radius: 8px;
     font-family: sans-serif;
 }
