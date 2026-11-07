@@ -10,7 +10,7 @@ class StudentController extends Controller
     //
     public function index()
     {
-        $students = Student::latest()->get();
+        $students = Student::orderBy('id', 'asc')->get();
         return response()->json($students);
     }
 
