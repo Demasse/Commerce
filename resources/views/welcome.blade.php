@@ -10,9 +10,10 @@
 </head>
 <body>
     <div id="app">
+        <div></div>
         <!-- Appel de ton composant Vue -->
         <gestion-etudiants></gestion-etudiants>
-        
+
     </div>
 </body>
 </html>
