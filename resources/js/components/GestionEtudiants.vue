@@ -34,7 +34,7 @@ const submitStudent = async () => {
 
 // Supprimer un étudiant
 const deleteStudent = async (id) => {
-    if (confirm("Voulez-vous vraiment supprimer cet étudiant ?")) {
+    if (confirm("Voulez-vous vraiment supprimer cette étudiant ?")) {
         try {
             await axios.delete(`/students/${id}`);
             fetchStudents();
