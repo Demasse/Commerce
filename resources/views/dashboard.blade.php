@@ -50,11 +50,11 @@
                         <h3 class="text-xl font-bold text-gray-800 mt-4">Gestion des Étudiants</h3>
                         <p class="text-sm text-gray-600 mt-2">Accédez à votre CRUD d'étudiants développé avec Vue.js et Tailwind.</p>
                     </div>
-                    {{-- <div class="mt-6">
+                    <div class="mt-6">
                         <a href="/students" class="inline-block bg-indigo-600 text-white font-medium px-4 py-2 rounded-lg hover:bg-indigo-700 transition shadow">
                             Voir le CRUD &rarr;
                         </a>
-                    </div> --}}
+                    </div>
                 </div>
 
                 <!-- Carte Futur E-commerce -->
