@@ -9,11 +9,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
+
+    {{-- <div id="app"> --}}
         <div></div>
         <!-- Appel de ton composant Vue -->
-        <gestion-etudiants></gestion-etudiants>
+        {{-- <gestion-etudiants></gestion-etudiants> --}}
 
-    </div>
+    {{-- </div> --}}
+    
 </body>
 </html>
