@@ -86,6 +86,49 @@ const props = defineProps({
                     </a>
                 </template>
             </div>
+            <!-- 2. C'est ici qu'on met la grille des produits dans le template -->
+            <div class="space-y-6">
+                <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                    <h2 class="text-2xl font-bold tracking-tight">Catalogue de Produits</h2>
+                    <span
+                        class="text-sm text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-full border border-indigo-800/50">
+                        {{ products.length }} articles disponibles
+                    </span>
+                </div>
+
+                <!-- Si aucun produit n'est trouvé -->
+                <div v-if="products.length === 0"
+                    class="text-center py-12 bg-white/5 rounded-2xl border border-white/10">
+                    <p class="text-gray-400">Aucun produit pour le moment. Revenez très vite !</p>
+                </div>
+
+                <!-- Grille des produits -->
+                <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div v-for="product in products" :key="product.id"
+                        class="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-pink-500/50 transition shadow-xl">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold text-white">{{ product.name }}</h3>
+                                <span
+                                    class="text-xs font-semibold bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full border border-emerald-500/30">
+                                    Stock : {{ product.stock }}
+                                </span>
+                            </div>
+                            <p class="text-sm text-gray-300 mt-3 leading-relaxed">{{ product.description }}</p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center">
+                            <span class="text-xl font-extrabold text-pink-400">
+                                {{ Number(product.price).toLocaleString() }} XAF
+                            </span>
+                            <button
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-xl shadow transition transform active:scale-95">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- Pied de page -->
