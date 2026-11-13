@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+         $table->id();
+        $table->string('name');
+        $table->text('description')->nullable();
+        $table->decimal('price', 10, 2); // Ex: 99.99
+        $table->integer('stock')->default(0);
+        $table->string('image')->nullable(); // Pour stocker le lien de l'image
+        $table->timestamps();
         });
     }
 
