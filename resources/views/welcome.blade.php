@@ -11,6 +11,7 @@
     <div id="app">
         <accueil-page
             :is-authenticated="{{ json_encode(auth()->check()) }}"
+            :products="{{ json_encode($products) }}"
             :routes="{{ json_encode([
                 'login' => route('login'),
                 'register' => route('register'),

@@ -5,6 +5,10 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    products: {
+        type: Array,
+        default: () => []
+    },
     routes: {
         type: Object,
         required: true
