@@ -28,7 +28,7 @@ const submitStudent = async () => {
         fetchStudents();
     } catch (error) {
         console.error("Erreur lors de l'ajout :", error);
-        alert("Vérifie les informations saisie au ccl.");
+        alert("Vérifie les informations saisie au clavier.");
     }
 };
 
