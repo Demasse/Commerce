@@ -79,7 +79,7 @@ onMounted(() => {
             <div class="md:col-span-2">
                 <button type="submit"
                     class="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 transition">
-                    Ajouter l'étudiant
+                    Ajouter l'étudiants
                 </button>
             </div>
         </form>
