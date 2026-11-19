@@ -20,6 +20,7 @@
                 'cartStore' => route('cart.store'),
                 'cartUpdate' => url('/panier/item'),
                 'cartDestroy' => url('/panier/item'),
+                'ordersStore' => route('orders.store'),
             ]) }}"></accueil-page>
     </div>
 </body>
