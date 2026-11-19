@@ -26,3 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/panier/item/{cartItem}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/panier/item/{cartItem}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
+
+use App\Http\Controllers\OrderController;
+
+Route::middleware('auth')->group(function () {
+    // ... routes existantes du panier ...
+    Route::post('/commandes', [OrderController::class, 'store'])->name('orders.store');
+});

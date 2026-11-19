@@ -165,6 +165,44 @@ const cartTotalXAF = computed(() => {
 onMounted(() => {
     fetchCart();
 });
+
+const isCheckingOut = ref(false);
+
+const checkoutOrder = async () => {
+    if (!props.isAuthenticated || isCheckingOut.value) return;
+
+    isCheckingOut.value = true;
+    try {
+        const response = await fetch(props.routes.ordersStore, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': getCsrfToken(),
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            showToast(data.message || 'Impossible de valider la commande.', 'error');
+            return;
+        }
+
+        // On vide le panier côté Vue et on affiche un message avec le numéro de facture
+        cart.value = { items: [] };
+        isCartOpen.value = false;
+        showToast(
+            `Commande ${data.order.reference} validée ! Facture : ${data.invoice.invoice_number}`,
+            'success'
+        );
+    } catch (error) {
+        showToast('Erreur réseau lors de la commande.', 'error');
+    } finally {
+        isCheckingOut.value = false;
+    }
+};
 </script>
 
 <template>
@@ -374,10 +412,11 @@ onMounted(() => {
                         </span>
                     </div>
 
-                    <button type="button" disabled
-                        class="w-full bg-emerald-600/50 text-white font-semibold py-3 rounded-xl text-sm cursor-not-allowed">
-                        Passer la commande (Étape suivante)
+                    <button type="button" @click="checkoutOrder" :disabled="isCheckingOut"
+                        class="w-full bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white font-semibold py-3 rounded-xl text-sm shadow-lg transition active:scale-95">
+                        {{ isCheckingOut ? 'Validation en cours...' : 'Passer la commande' }}
                     </button>
+
                 </div>
             </aside>
         </div>
@@ -389,3 +428,4 @@ onMounted(() => {
 
     </div>
 </template>
+
