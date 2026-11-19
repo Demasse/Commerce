@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,17 +8,20 @@
     <!-- C'est cette ligne qui charge Vite et tes composants -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="bg-gray-900">
     <div id="app">
-        <accueil-page
-            :is-authenticated="{{ json_encode(auth()->check()) }}"
-            :products="{{ json_encode($products) }}"
+        <accueil-page :is-authenticated="{{ json_encode(auth()->check()) }}" :products="{{ json_encode($products) }}"
             :routes="{{ json_encode([
                 'login' => route('login'),
                 'register' => route('register'),
-                'dashboard' => route('dashboard')
-            ]) }}"
-        ></accueil-page>
+                'dashboard' => route('dashboard'),
+                'cartIndex' => route('cart.index'),
+                'cartStore' => route('cart.store'),
+                'cartUpdate' => url('/panier/item'),
+                'cartDestroy' => url('/panier/item'),
+            ]) }}"></accueil-page>
     </div>
 </body>
+
 </html>
